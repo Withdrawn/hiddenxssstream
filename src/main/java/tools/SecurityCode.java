@@ -1,0 +1,69 @@
+package tools;
+
+import java.util.Arrays;
+
+public class SecurityCode{
+	public enum SecuirtyCodeLevel{Simple,Medium,Hard};
+	
+	public  String getSecurityCode(){
+		return getSecurityCode(4,SecuirtyCodeLevel.Medium,false);
+	}
+	
+	/**
+     * 产生长度和难度任意的验证码
+     * @param length  长度
+     * @param level   难度级别
+     * @param isCanRepeat  是否能够出现重复的字符，如果为true，则可能出现 5578这样包含两个5,如果为false，则不可能出现这种情况
+     * @return  String 验证码
+*/
+	public String getSecurityCode(int length,SecuirtyCodeLevel level,boolean isCanrepeat)
+	{
+			int len=length;
+			//字符集合(除去易混淆的数字0、数字1、字母l、字母o、字母O)
+	        char[] codes={'1','2','3','4','5','6','7','8','9',
+	        						 'a','b','c','d','e','f','g','h','i',
+	        						 'j','k','m','n','p','q','r','s','t',
+	        						 'u','v','w','x','y','z','A','B','C',
+	        						 'D','E','F','G','H','I','J','K','L',
+	        						 'M','N','P','Q','R','S','T','U','V',
+	        						 'W','X','Y','Z'};
+	        if(level==SecuirtyCodeLevel.Simple)
+	        {
+	        	codes=Arrays.copyOfRange(codes,0,9);
+	        }else if(level==SecuirtyCodeLevel.Medium)
+	        {
+	        	codes=Arrays.copyOfRange(codes,0,33);
+	        }
+	        
+	        int n=codes.length;
+	        
+	        if(len>n&&isCanrepeat==false)
+	        {
+	        	throw new RuntimeException(String.format("调用SecurityCode.getSecurityCode(%1$s,%2$s,%3$s)�����쳣",len,level,isCanrepeat));
+	        }
+	        
+	        char[] result=new char[len];
+	        
+	        if(isCanrepeat){
+	        	for(int i=0;i<result.length;i++){
+	        		 //索引 0 and n-1
+	        		int r=(int)(Math.random()*n); 
+	        		//将result中的第i个元素设置为codes[r]存放的数值
+	        		result[i]=codes[r];
+	        	}
+	        }else{
+	        	for(int i=0;i<result.length;i++){
+	        		//索引 0 and n-1
+	        		int r=(int)(Math.random()*n);
+	        		//将result中的第i个元素设置为codes[r]存放的数值
+	        		result[i]=codes[r];
+	                  
+	                //必须确保不会再次抽取到那个字符，因为所有抽取的字符必须不相同。
+                    //因此，这里用数组中的最后一个字符改写codes[r]，并将n减1
+                    codes[r]=codes[n-1];
+                    n--;
+	        	}
+	        }
+        return String.valueOf(result);
+	}
+}

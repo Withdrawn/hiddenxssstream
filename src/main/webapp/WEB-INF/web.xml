@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app version="2.5" 
+xmlns="http://java.sun.com/xml/ns/javaee" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <description>这是一个XSS平台,xss在黑暗中传播,像水一样从一个地方流向周围.</description>
+  <display-name></display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  		<!-- 静态 -->
+		  <servlet-mapping>
+		    <servlet-name>default</servlet-name>
+		    <url-pattern>*.jpg</url-pattern>
+		  </servlet-mapping>
+		  <servlet-mapping>
+		    <servlet-name>default</servlet-name>
+		    <url-pattern>*.png</url-pattern>
+		  </servlet-mapping>
+		  <servlet-mapping>
+		    <servlet-name>default</servlet-name>
+		    <url-pattern>*.bmp</url-pattern>
+		  </servlet-mapping>
+		  <servlet-mapping>
+		    <servlet-name>default</servlet-name>
+		    <url-pattern>*.js</url-pattern>
+		  </servlet-mapping>
+		  <servlet-mapping>
+		    <servlet-name>default</servlet-name>
+		    <url-pattern>*.css</url-pattern>
+		  </servlet-mapping>
+		   <servlet-mapping>
+		    <servlet-name>default</servlet-name>
+		    <url-pattern>*.html</url-pattern>
+		  </servlet-mapping>
+  <servlet>
+    <servlet-name>xssfrontview</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>publicEvents</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>xssfrontview</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <!-- 标签配置 -->
+  <jsp-config>
+       <taglib>
+           <taglib-uri>springform</taglib-uri>
+           <taglib-location>/WEB-INF/spring-form.tld</taglib-location>
+       </taglib>
+        <taglib>
+           <taglib-uri>c</taglib-uri>
+           <taglib-location>/WEB-INF/c.tld</taglib-location>
+       </taglib>
+        <taglib>
+           <taglib-uri>fn</taglib-uri>
+           <taglib-location>/WEB-INF/fn.tld</taglib-location>
+       </taglib>
+       <taglib>
+           <taglib-uri>fmt</taglib-uri>
+           <taglib-location>/WEB-INF/fmt.tld</taglib-location>
+       </taglib>
+  </jsp-config>
+  <session-config>
+    <session-timeout>15</session-timeout>
+  </session-config>  
+  
+ <!-- 判断登录  -->
+	 <filter>
+	 	<filter-name>loginfilter</filter-name>
+	 	<filter-class>tools.LoginFilter</filter-class>
+	 	<init-param>
+        <param-name>excludeStrings</param-name><!-- 只对指定过滤参数后缀进行过滤 -->
+        <param-value>.css;.js</param-value>
+    </init-param>
+	 </filter>
+	 
+	 	 <!-- 乱码 -->
+	 <filter> 
+		<filter-name>encodingFilter</filter-name> 
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class> 
+		<init-param> 
+		<param-name>encoding</param-name> 
+		<param-value>UTF8</param-value> 
+		</init-param> 
+		<init-param> 
+		<param-name>forceEncoding</param-name> 
+		<param-value>true</param-value> 
+		</init-param> 
+	</filter> 
+	 <filter-mapping>
+	 	<filter-name>loginfilter</filter-name>
+	 	<url-pattern>/*</url-pattern>
+	 </filter-mapping>
+	  <filter-mapping>
+	 	<filter-name>encodingFilter</filter-name>
+	 	<url-pattern>/*</url-pattern>
+	 </filter-mapping>
+
+
+
+
+</web-app>

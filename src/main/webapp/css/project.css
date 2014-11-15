@@ -1,0 +1,14 @@
+body,div,a,ul,li,h5,th,thead,tr,td,tbody{margin: 0px; padding: 0px;}
+a{text-decoration: none; color:#0066cc; font-size: 14px;}
+.wrapper{width:790px;  background:#265380;}
+
+#proheader{width:770px; line-height: 30px; height:30px; padding: 0px 10px 0px 10px; border-bottom: solid 2px #0f2f4d; background: #eee;}
+#proheader h5{float: left; font-size: 14px;}
+#proheader a{float: right; }
+#procontent table{border-collapse:collapse; color:#c8e1fa; width:100%;}
+
+#procontent table thead{vertical-align: baseline;}
+#procontent table th{font-size: 14px; text-align: left; vertical-align: middle; padding-left: 5px;  background:#2bbbbb; height:30px; line-height:30px;}
+#probody tr{cell-spacing:0px; cell-padding:0px; height:25px;}
+#probody tr td{ padding: 0px; border-spacing: 0px;  text-indent: 10px;max-width:300px;word-wrap:break-word;  height:30px; line-height:20px;}
+#probody tr td a{color:#c8e1fa;}

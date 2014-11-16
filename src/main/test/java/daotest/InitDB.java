@@ -41,7 +41,7 @@ public class InitDB extends AbstractTransactionalJUnit4SpringContextTests{
 	public void setSession(Session session) {
 		this.session = session;
 	}
-	@Test
+	//@Test
 	public void test() {
 			Configuration config=null;
 			Transaction tx=null;
@@ -70,5 +70,6 @@ public class InitDB extends AbstractTransactionalJUnit4SpringContextTests{
 			       }
 			}
 	}
-
+	@Test
+	public void test2(){}
 }

@@ -28,6 +28,7 @@ encoding//src/main/java/tools/MD5Util.java=UTF-8
 encoding//src/main/java/tools/SecurityCode.java=UTF-8
 encoding//src/main/java/tools/SecurityImage.java=UTF-8
 encoding//src/main/java/tools/ShortUrlGenerator.java=UTF-8
+encoding//src/main/java/vo/ContentVo.java=UTF-8
 encoding//src/main/test/java/daotest/InitDB.java=UTF-8
 encoding//src/main/test/java/daotest/UserdaoTest.java=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/404.jsp=UTF-8

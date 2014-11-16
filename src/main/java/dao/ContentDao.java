@@ -8,6 +8,6 @@ import model.Project;
 public interface ContentDao
 {
 	public void saveContent(Content c);
-	public List<Content> getContentsByPrject(Project p,int page,int pagenum);
+	public List<Content> getContentsByProject(Project p,int page,int pagenum);
 
 }

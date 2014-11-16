@@ -23,8 +23,8 @@ public class ContentImpl implements ContentDao
 		s.save(c);
 	}
 
-	public List<Content> getContentsByPrject(Project p, int page, int pagenum) {
-		String hql="from Project where c_project=:projectid";
+	public List<Content> getContentsByProject(Project p, int page, int pagenum) {
+		String hql="from Content where c_project=:projectid";
 		Query q=sessionFactory.getCurrentSession().createQuery(hql);
 		q.setFirstResult((page-1)*pagenum);
 		q.setMaxResults(pagenum);

@@ -1,0 +1,66 @@
+  body,div,input{margin:0; padding:0; font-faimly:"微软雅黑"; font-size:14px;}
+    div#wrap {   
+        height:660px;   
+        display:table;   
+         margin:0 auto;
+    }   
+    div#content {   
+        vertical-align:middle;   
+        display:table-cell;   
+        width:760px;   
+    }  
+    .tabs {
+    	float:left;
+        width:80%;
+       
+    }
+    .tabs ul 
+    {
+        list-style: none outside none;
+        margin: 0;
+        padding: 0;
+    }
+    .tabs ul li
+    {
+        float: left;
+        line-height: 24px;
+        margin: 0;
+        padding: 2px 20px 0 15px;
+    }
+    .tab-nav{
+    	 background:#666666;
+    	 cursor:pointer;
+    }
+    .tab-nav-action{
+    	background: white;
+        font-weight: bold;
+    	cursor:pointer;
+    }
+    .tabs-body
+    {
+        border-bottom: 1px dashed #B4C9C6;
+     
+        border-left: 1px dashed #B4C9C6;
+        border-right: 1px dashed #B4C9C6;
+        float: left;
+       
+        width: 80%;
+    }
+    .tabs-body div 
+    {
+        padding:10px;
+        height:300px;
+        background:#666666;
+    }
+
+
+    #div1,#div2,#div3{
+        font-size: 20px;
+        font-family: Arial;
+    }
+    #tabs-body input[type=submit]{background:url("../images/bt1.png") no-repeat; border: 0px; width:86px; height:28px;}
+    .font{font-size: 16px; font-family: Arial; color: #B4C9C6;}
+    .num{font-size: 20px;font-family: Georgia, "宋体"; display: inline; }
+    #inputurl{width: 450px; height:31px; line-height: 31px;  margin-top:10px; background: url("../images/copybd.png");  -webkit-border-radius: 10px; -moz-border-radius: 10px; padding: 0px;}
+    #inputurl input{width:431px; height:21px; margin-left: 5px; outline:0; border:0px;}
+    #inputshort{background-image: url("../images/copybd.png"); background-position:-527px 1px; width:200px; height:28px; background-repeat: no-repeat; border:0px; -webkit-border-radius: 3px; -moz-border-radius: 3px;}

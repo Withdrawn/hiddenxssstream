@@ -2,6 +2,7 @@ package controllers;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -21,11 +22,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import services.ContentService;
 import services.ModuleService;
 import services.ProjectService;
+import vo.ContentVo;
 
 @Controller
 @RequestMapping("project")
@@ -103,8 +106,8 @@ public class ProjectController
 		}
 		 return "redirect:/project";
 	}
-	@RequestMapping(value="{pId}/detail/{page}",method=RequestMethod.GET)
-	public String projectDetail(@PathVariable Integer pId,@PathVariable Integer page,HttpServletRequest req)
+	@RequestMapping(value="{pId}/detail",method=RequestMethod.GET)
+	public String projectDetail(@PathVariable Integer pId,@RequestParam(required=false) Integer page,HttpServletRequest req)
 	{
 		int u_id=(Integer) req.getSession().getAttribute("u_id");
 		Project p=ps.showProjectDetail(u_id, pId);
@@ -117,10 +120,15 @@ public class ProjectController
 			if(page==null)
 				page=1;
 			int pagenum=10;
-			List<Content> contents=cs.getContentsByPrject(p, page, pagenum);
+			
+			List<ContentVo> contents=cs.getContentsByProject(p, page, pagenum);
 			req.setAttribute("project",p);
 			req.setAttribute("contents", contents);
 			//get use set to get unique domain from contents
+			HashSet<String> domains=new HashSet<String>();
+			for(ContentVo c:contents)
+				domains.add(c.getDomain());
+			req.setAttribute("domains", domains);
 		}
 		return "projectdetail";
 	}

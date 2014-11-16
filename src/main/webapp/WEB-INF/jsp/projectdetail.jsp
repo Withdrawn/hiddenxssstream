@@ -90,7 +90,7 @@ function CheckAll(obj){
 	<div id="detailheader">
 		<table>
 			<caption align="top">
-				<h3>项目名称:<a>配置</a><a href="viewcode">查看代码</a></h3>
+				<h3>项目名称:<a>配置</a><a href="project/${project.p_id}/viewcode">查看代码</a></h3>
 			
 				Domain:<select><option value="">全部</option></select>		 			时间<select><option value="">1小时前</option></select>	
 			</caption>
@@ -105,28 +105,30 @@ function CheckAll(obj){
 				</tr>
 			</thead>
 			<tbody>
+			<c:forEach var="content" items="${contents}">
 				<tr class="ohidden">
 					<td width="20"><input type="checkbox" class="checon" value=""></td>
 					<td  width="40"><a href="javascript:void(0)"  class="un">+展开</a></td>
 					<td width="120">2014-10-30 00:09:47</td>
-					<td width="220"> 
+					<td width="220">
 						<ul>
-							<li>location:</li>
-							<li>toplocation:</li>
-							<li>cookie:</li>
-							<li>opener:</li>
+							<li>location:${content.location}</li>
+							<li>toplocation:${content.toplocation}</li>
+							<li>cookie:${content.cookie}</li>
+							<li>opener:${content.opener}</li>
 						</ul>
 					</td>
 					<td width="220">
 						<ul>
-							<li>REFERER</li>
-							<li>USER_AGENT</li>
-							<li>REMOTE_ADDR</li>
+							<li>REFERER:${content.referer}</li>
+							<li>USER_AGENT:${content.useragent}</li>
+							<li>REMOTE_ADDR:${content.remote_addr}</li>
 						</ul>
 					</td>
 					<td width="30"><a href="content/delete" onclick="return confirm('确定删除吗?');">删除</a></td>
 					
 				</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>

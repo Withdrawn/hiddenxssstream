@@ -1,0 +1,22 @@
+body,div,a,ul,li,h1,h2,h3,label{margin: 0px; padding: 0px;}
+a{text-decoration: none; color:white;}
+label{font-weight:bold;vertical-align: baseline; color:#c8e1fa;}
+.wrapper{width:790px;  background:#265380;}
+#moduleheader{width:790px; height:30px; border-bottom: solid 2px #0f2f4d;}
+#moduleheader ul{width: 100%; height:30px; list-style-type: none; background:#224b73 ;}
+#moduleheader ul li{width:25%; cursor:pointer; height: 30px; float: left;  line-height: 30px; font-size: 14px; font-weight: bold; text-align: center;}
+#moduleheader ul li a{color:white; width:100%; height:30px; display:block;}
+#moduleheader ul li a:visited{}
+#moduleheader ul li a:hover{background:#265380; }
+.moduleselect{background:#265380; }
+	
+#modulecontent,#moduleinfo{margin-left:30px; color:#c8e1fa; font-size:14px;}
+#modulecontent a{color:#c8e1fa; text-decoration: underline;}
+.moduletext{border: 1px solid #bbb; width:300px; padding:5px;}
+.modulearea{ height:80px; padding:5px; resize: none; width:300px;}
+.modulecode{resize: none; width:700px; height:250px;}
+
+#moduleinfo{display:none; padding-top:30px;}
+#moduleinfo table th{text-align:right;}
+#moduleinfo table td{text-indent:10px;}
+#moduleinfo table tr{height:40px; font-size:14px; color:yellow;}

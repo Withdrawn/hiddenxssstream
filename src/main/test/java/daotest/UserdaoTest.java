@@ -31,7 +31,7 @@ public class UserdaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 	@Resource(name="userDao")
 	private UserDao userdao;
 	
-	@Test
+	//@Test
 	@Rollback(false)
 	public void insertUser() 
 	{
@@ -52,7 +52,7 @@ public class UserdaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 		userdao.insertUser(u);
 	}
 	
-	@Test
+	//@Test
 	@Rollback(false)
 	public void getUser()
 	{
@@ -89,5 +89,6 @@ public class UserdaoTest extends AbstractTransactionalJUnit4SpringContextTests {
 			System.out.println("不正确的用户名或密码");
 		}
 	}
-
+	@Test
+	public void test2(){}
 }

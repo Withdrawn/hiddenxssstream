@@ -86,4 +86,12 @@
 				</props>
 			</property>
 		</bean> 
-</beans>
+		
+		<!-- 拦截器 -->
+		<mvc:interceptors>
+			<mvc:interceptor>
+				<mvc:mapping path="/project/**"/><!-- /*只会匹配project/xx 而不能匹配更深的--> 
+				<bean class="tools.LoginInteceptor"/>
+			</mvc:interceptor>
+		</mvc:interceptors>
+</beans>  

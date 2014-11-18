@@ -24,6 +24,7 @@ encoding//src/main/java/services/ShortService.java=UTF-8
 encoding//src/main/java/services/UserService.java=UTF-8
 encoding//src/main/java/tools/ImageChange.java=UTF-8
 encoding//src/main/java/tools/LoginFilter.java=UTF-8
+encoding//src/main/java/tools/LoginInteceptor.java=UTF-8
 encoding//src/main/java/tools/MD5Util.java=UTF-8
 encoding//src/main/java/tools/SecurityCode.java=UTF-8
 encoding//src/main/java/tools/SecurityImage.java=UTF-8
